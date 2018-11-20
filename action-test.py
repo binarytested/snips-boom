@@ -10,4 +10,4 @@ def intent_received(hermes, intent_message):
     hermes.publish_end_session(intent_message.session_id, 'Ending session')
 
 with Hermes('raspberrypi.local:1883') as h:
-    h.subscribe_intents(intent_received).start()
+    h.subscribe_intent(test_code, intent_received).start()
