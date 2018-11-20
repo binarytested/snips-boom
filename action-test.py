@@ -1,13 +1,13 @@
 #!/usr/bin/env python2
 from hermes_python.hermes import Hermes
 
-#globalvalue = "global"
+globalvalue = "global"
 
-def the_code(hermes, intent_message):
-    #globalvalue = "eureka"
-    #INTENT_FILTER = ["test_end_session"]
+def test_code(hermes, intent_message):
+    globalvalue = "eureka"
+    INTENT_FILTER = ["test_end_session"]
     sentence = "continue session"
-    #hermes.publish_continue_session(intent_message.session_id, sentence, INTENT_FILTER)
+    hermes.publish_continue_session(intent_message.session_id, sentence, INTENT_FILTER)
     #print('Intent {}'.format(intent_message.intent))
 
     #for (slot_value, slot) in intent_message.slots.items():
@@ -15,7 +15,7 @@ def the_code(hermes, intent_message):
 
     #hermes.publish_end_session(intent_message.session_id, 'Ending session')
     #print("*** EUREKA ***")
-    hermes.publish_end_session(intent_message.session_id, sentence)
+    #hermes.publish_end_session(intent_message.session_id, sentence)
      
    
 def test_end_session(hermes, intent_message):   
@@ -24,4 +24,4 @@ def test_end_session(hermes, intent_message):
     
     
 with Hermes('raspberrypi.local:1883') as h:
-    h.subscribe_intent("multip:test_code", the_code).start()
+    h.subscribe_intent("multip:test_code", test_code).start()
