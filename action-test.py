@@ -9,6 +9,7 @@ def test_code(hermes, intent_message):
     INTENT_FILTER = ["test_end_session"]
     sentence = "continue session"
     hermes.publish_continue_session(intent_message.session_id, sentence, INTENT_FILTER)
+    hermes.publish_end_session(intent_message.session_id, sentence)
     
     #print('Intent {}'.format(intent_message.intent))
 
