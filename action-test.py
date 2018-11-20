@@ -19,7 +19,7 @@ def test_code(hermes, intent_message):
      
    
 def test_end_session(hermes, intent_message):   
-    #hermes.publish_end_session(session_id, globalvalue)
+    hermes.publish_end_session(session_id, globalvalue)
 
     
     
