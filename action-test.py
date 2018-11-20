@@ -1,13 +1,29 @@
 #!/usr/bin/env python2
 from hermes_python.hermes import Hermes
 
-def intent_received(hermes, intent_message):
-    print('Intent {}'.format(intent_message.intent))
+globalvalue = "global"
 
-    for (slot_value, slot) in intent_message.slots.items():
-        print('Slot {} -> \n\tRaw: {} \tValue: {}'.format(slot_value, slot[0].raw_value, slot[0].slot_value.value.value))
+def test_code(hermes, intent_message):
+    
+    globalvalue = "eureka"
+    INTENT_FILTER = ["test_end_session"]
+    sentence = "continue session"
+    hermes.publish_continue_session(intent_message.session_id, sentence, INTENT_FILTER)
+    
+    #print('Intent {}'.format(intent_message.intent))
 
-    hermes.publish_end_session(intent_message.session_id, 'Ending session')
+    #for (slot_value, slot) in intent_message.slots.items():
+    #    print('Slot {} -> \n\tRaw: {} \tValue: {}'.format(slot_value, slot[0].raw_value, slot[0].slot_value.value.value))
 
+    #hermes.publish_end_session(intent_message.session_id, 'Ending session')
+     
+   
+def test_end_session(hermes, intent_message):   
+    hermes.publish_end_session(session_id, globalvalue)
+
+    
+    
 with Hermes('raspberrypi.local:1883') as h:
-    h.subscribe_intent(test_code, intent_received).start()
+    h.subscribe_intent(test_code, test_code) \
+        .subscribe_intent(test_end_session, test_end_session) \
+        .start()
