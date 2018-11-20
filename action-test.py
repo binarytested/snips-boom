@@ -3,7 +3,7 @@ from hermes_python.hermes import Hermes
 
 #globalvalue = "global"
 
-def test_code(hermes, intent_message):
+def the_code(hermes, intent_message):
     #globalvalue = "eureka"
     #INTENT_FILTER = ["test_end_session"]
     #sentence = "continue session"
@@ -24,4 +24,4 @@ def test_code(hermes, intent_message):
     
     
 with Hermes('raspberrypi.local:1883') as h:
-    h.subscribe_intent("test_code", test_code).start()
+    h.subscribe_intent("test_code", the_code).start()
