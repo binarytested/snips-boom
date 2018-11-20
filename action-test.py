@@ -1,14 +1,14 @@
 #!/usr/bin/env python2
 from hermes_python.hermes import Hermes
 
-globalvalue = "global"
+#globalvalue = "global"
 
 def test_code(hermes, intent_message):
     
-    globalvalue = "eureka"
-    INTENT_FILTER = ["test_end_session"]
+    #globalvalue = "eureka"
+    #INTENT_FILTER = ["test_end_session"]
     sentence = "continue session"
-    hermes.publish_continue_session(intent_message.session_id, sentence, INTENT_FILTER)
+    #hermes.publish_continue_session(intent_message.session_id, sentence, INTENT_FILTER)
     hermes.publish_end_session(intent_message.session_id, sentence)
     
     #print('Intent {}'.format(intent_message.intent))
@@ -19,8 +19,8 @@ def test_code(hermes, intent_message):
     #hermes.publish_end_session(intent_message.session_id, 'Ending session')
      
    
-def test_end_session(hermes, intent_message):   
-    hermes.publish_end_session(session_id, globalvalue)
+#def test_end_session(hermes, intent_message):   
+    #hermes.publish_end_session(session_id, globalvalue)
 
     
     
