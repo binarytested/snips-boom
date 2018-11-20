@@ -18,10 +18,10 @@ def the_code(hermes, intent_message):
     hermes.publish_end_session(intent_message.session_id, sentence)
      
    
-#def test_end_session(hermes, intent_message):   
+def test_end_session(hermes, intent_message):   
     #hermes.publish_end_session(session_id, globalvalue)
 
     
     
 with Hermes('raspberrypi.local:1883') as h:
-    h.subscribe_intent("test_code", the_code).start()
+    h.subscribe_intent("multip:test_code", the_code).start()
