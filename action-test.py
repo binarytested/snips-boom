@@ -6,7 +6,7 @@ from hermes_python.hermes import Hermes
 def the_code(hermes, intent_message):
     #globalvalue = "eureka"
     #INTENT_FILTER = ["test_end_session"]
-    #sentence = "continue session"
+    sentence = "continue session"
     #hermes.publish_continue_session(intent_message.session_id, sentence, INTENT_FILTER)
     #print('Intent {}'.format(intent_message.intent))
 
@@ -14,7 +14,7 @@ def the_code(hermes, intent_message):
     #    print('Slot {} -> \n\tRaw: {} \tValue: {}'.format(slot_value, slot[0].raw_value, slot[0].slot_value.value.value))
 
     #hermes.publish_end_session(intent_message.session_id, 'Ending session')
-    print("*** EUREKA ***")
+    #print("*** EUREKA ***")
     hermes.publish_end_session(intent_message.session_id, sentence)
      
    
