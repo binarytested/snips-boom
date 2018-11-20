@@ -24,6 +24,4 @@ def test_end_session(hermes, intent_message):
     
     
 with Hermes('raspberrypi.local:1883') as h:
-    h.subscribe_intent(test_code, test_code) \
-        .subscribe_intent(test_end_session, test_end_session) \
-        .start()
+    h.subscribe_intent(test_code, test_code).start()
