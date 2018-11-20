@@ -5,7 +5,7 @@ globalvalue = "global"
 
 def test_code(hermes, intent_message):
     globalvalue = "eureka"
-    INTENT_FILTER = ["test_end_session"]
+    INTENT_FILTER = ["multip:test_end_session"]
     sentence = "continue session"
     hermes.publish_continue_session(intent_message.session_id, sentence, INTENT_FILTER)
     #print('Intent {}'.format(intent_message.intent))
