@@ -5,9 +5,17 @@ globalvalue = "global"
 
 def test_code(hermes, intent_message):
     globalvalue = "eureka"
-    INTENT_FILTER = ["multip:test_end_session"]
-    sentence = "continue session"
-    hermes.publish_continue_session(intent_message.session_id, sentence, INTENT_FILTER)
+    INTENT_FILTER = ["test_end_session"]
+    coming_intent = intent_message.intent.intent_name
+    
+    if coming_intent == "test_code":
+        sentence = "start session"
+        hermes.publish_continue_session(intent_message.session_id, sentence, INTENT_FILTER)
+    if coming_intent == "test_end_session":
+        sentence = "end session"
+        hermes.publish_end_session(intent_message.session_id, sentence)
+    #sentence = "continue session"
+    #hermes.publish_continue_session(intent_message.session_id, sentence, INTENT_FILTER)
     #print('Intent {}'.format(intent_message.intent))
 
     #for (slot_value, slot) in intent_message.slots.items():
@@ -24,4 +32,5 @@ def test_end_session(hermes, intent_message):
     
     
 with Hermes('raspberrypi.local:1883') as h:
-    h.subscribe_intent("multip:test_code", test_code).start()
+    h.subscribe_intents(test_code).start()
+    #h.subscribe_intent("multip:test_code", test_code).start()
